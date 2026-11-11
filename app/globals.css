@@ -1,0 +1,272 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Default variables (reused or overridden) */
+  --color-elegant-bg: var(--elegant-bg);
+  --color-elegant-sidebar: var(--elegant-sidebar);
+  --color-elegant-card: var(--elegant-card);
+  --color-elegant-border: var(--elegant-border);
+  --color-elegant-text: var(--elegant-text);
+  --color-elegant-text-bright: var(--elegant-text-bright);
+  --color-elegant-text-muted: var(--elegant-text-muted);
+  --color-elegant-text-label: var(--elegant-text-label);
+  --color-elegant-accent: var(--elegant-accent);
+  --color-elegant-accent-bg: var(--elegant-accent-bg);
+}
+
+:root {
+  /* Light Theme */
+  /* Paleta do crmWeb: stone + azul */
+  --elegant-bg: #f5f5f4;
+  --elegant-sidebar: #ffffff;
+  --elegant-card: #ffffff;
+  --elegant-border: #e7e5e4;
+  --elegant-text: #57534e;
+  --elegant-text-bright: #1c1917;
+  --elegant-text-muted: #78716c;
+  --elegant-text-label: #a8a29e;
+  --elegant-accent: #2563eb;
+  --elegant-accent-bg: #eff6ff;
+  --altura-topo: 4.375rem; /* topo da sidebar = header das telas */
+  --larg-menu: 16rem; /* sidebar aberta (w-64); recolhida = 4rem */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+[data-theme='dark'] {
+  /* Dark Theme */
+  --elegant-bg: #0c0a09;
+  --elegant-sidebar: #1c1917;
+  --elegant-card: #1c1917;
+  --elegant-border: #292524;
+  --elegant-text: #d6d3d1;
+  --elegant-text-bright: #f5f5f4;
+  --elegant-text-muted: #a8a29e;
+  --elegant-text-label: #78716c;
+  --elegant-accent: #60a5fa;
+  --elegant-accent-bg: rgba(23, 37, 84, 0.4);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground no-scrollbar;
+  }
+  html {
+    @apply font-sans no-scrollbar;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .no-vertical-scrollbar::-webkit-scrollbar:vertical {
+    display: none;
+  }
+  .no-vertical-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .no-vertical-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(150, 150, 150, 0.3);
+    border-radius: 4px;
+  }
+  .no-vertical-scrollbar::-webkit-scrollbar {
+    height: 8px; /* Set height for the horizontal scrollbar */
+  }
+}
+
+
+/* ==========================================
+   CAMPOS DE ENTRADA
+   Moldura de 1px com cantos arredondados; barra de 2px à esquerda: verde = opcional, âmbar = obrigatório
+   (atributo required). Foco só escurece o fundo, sem anel.
+   .campo-botao = botão que faz papel de campo (ex.: abre um modal de escolha).
+   ========================================== */
+:where(input, select, textarea):where(:not([type="checkbox"]):not([type="radio"]):not([type="color"]):not([type="file"]):not([type="range"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="image"]):not([type="hidden"])),
+:where(.campo-botao) {
+  border: 1px solid rgba(120, 113, 108, 0.35) !important;
+  border-left-width: 2px !important;
+  border-left-color: #10b981 !important;
+  border-radius: 0.375rem !important;
+}
+:where(input, select, textarea):where(:not([type="checkbox"]):not([type="radio"]):not([type="color"]):not([type="file"]):not([type="range"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="image"]):not([type="hidden"])):where(:required) {
+  border-left-color: #eab308 !important;
+}
+:where(input, select, textarea):where(:not([type="checkbox"]):not([type="radio"]):not([type="color"]):not([type="file"]):not([type="range"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="image"]):not([type="hidden"])):focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)) !important;
+}
+
+/* Lista aberta do select com a mesma moldura arredondada (select customizável: Chrome/Edge 135+;
+   os outros navegadores ignoram e mostram a lista nativa) */
+@supports (appearance: base-select) {
+  select:not([multiple]),
+  select:not([multiple])::picker(select) {
+    appearance: base-select;
+  }
+  select:not([multiple])::picker(select) {
+    border: 1px solid rgba(120, 113, 108, 0.35);
+    border-radius: 0.375rem;
+    margin-top: 2px;
+    padding: 4px 0;
+    background: #fff;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  }
+  .dark select:not([multiple])::picker(select) {
+    background: #1c1917;
+  }
+  select:not([multiple]) option {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  select:not([multiple]) option::checkmark {
+    display: none;
+  }
+  select:not([multiple]) option:hover,
+  select:not([multiple]) option:focus-visible {
+    background: #eff6ff;
+    outline: none;
+  }
+  select:not([multiple]) option:checked {
+    background: #2563eb;
+    color: #fff;
+  }
+  .dark select:not([multiple]) option:hover,
+  .dark select:not([multiple]) option:focus-visible {
+    background: rgba(23, 37, 84, 0.6);
+  }
+}
+
+/* Layout customizável dos campos do formulário (FormCrm): largura em colunas do grid de 4 e altura do controle */
+@media (min-width: 64rem) {
+  .campo-span {
+    grid-column: span var(--span) / span var(--span);
+  }
+}
+.campo-altura :is(input:not([type='file']), select, textarea) {
+  height: var(--altura);
+}
